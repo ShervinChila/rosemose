@@ -308,7 +308,7 @@ __mod_name__ = "قفل"
 
 LOCKTYPES_HANDLER = DisableAbleCommandHandler("قفلیست", locktypes)
 LOCKTYPES_HANDLER = DisableAbleCommandHandler("🔏", locktypes)
-LOCK_HANDLER = CommandHandler('🔒', 'قفل', lock, pass_args=True, filters=Filters.group)
+LOCK_HANDLER = CommandHandler("'🔒', 'قفل'", lock, pass_args=True, filters=Filters.group)
 UNLOCK_HANDLER = CommandHandler("🔓", unlock, pass_args=True, filters=Filters.group)
 LOCKED_HANDLER = CommandHandler("قفلها", list_locks, filters=Filters.group)
 
