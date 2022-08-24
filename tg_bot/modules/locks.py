@@ -289,11 +289,11 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = """
- - /locktypes: a list of possible locktypes
+ - .قفلیست: لیست قفلها
 
-*Admin only:*
- - /lock <type>: lock items of a certain type (not available in private)
- - /unlock <type>: unlock items of a certain type (not available in private)
+*دستورات ادمین ها:*
+ - .🔒 <گزینه مورد نظر>=قفل کردن
+ - .🔓 <گزینه مورد نظر>:باز کردن
  - /locks: the current list of locks in this chat.
 
 Locks can be used to restrict a group's users.
@@ -303,11 +303,11 @@ stickers, etc.
 Locking bots will stop non-admins from adding bots to the chat.
 """
 
-__mod_name__ = "قفل ها"
+__mod_name__ = "قفل"
 
 LOCKTYPES_HANDLER = DisableAbleCommandHandler("قفلیست", locktypes)
-LOCK_HANDLER = CommandHandler("قفل", lock, pass_args=True, filters=Filters.group)
-UNLOCK_HANDLER = CommandHandler("بازکردن", unlock, pass_args=True, filters=Filters.group)
+LOCK_HANDLER = CommandHandler("🔒", lock, pass_args=True, filters=Filters.group)
+UNLOCK_HANDLER = CommandHandler("🔓", unlock, pass_args=True, filters=Filters.group)
 LOCKED_HANDLER = CommandHandler("قفلها", list_locks, filters=Filters.group)
 
 dispatcher.add_handler(LOCK_HANDLER)
