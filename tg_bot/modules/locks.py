@@ -20,17 +20,17 @@ from tg_bot.modules.sql import users_sql
 
 LOCK_TYPES = {'استیکر': Filters.sticker,
               '🎭': Filters.sticker,
-              'موزیک': Filters.audio,
-              'ویس': Filters.voice,
+              '🎧': Filters.audio,
+              '🗣': Filters.voice,
               'اسناد': Filters.document,
-              'ویدیو': Filters.video,
+              '📹': Filters.video,
               'مخاطب': Filters.contact,
-              'عکس': Filters.photo,
+              '📷': Filters.photo,
               'گیف': Filters.document & CustomFilters.mime_type("video/mp4"),
-              'لینک': Filters.entity(MessageEntity.URL) | Filters.caption_entity(MessageEntity.URL),
-              'زبات': Filters.status_update.new_chat_members,
+              '🌐': Filters.entity(MessageEntity.URL) | Filters.caption_entity(MessageEntity.URL),
+              '🤖': Filters.status_update.new_chat_members,
               'فوروارد': Filters.forwarded,
-              'بازی': Filters.game,
+              '🎮': Filters.game,
               'لوکیشن': Filters.location,
               }
 
@@ -246,18 +246,18 @@ def build_lock_message(chat_id):
     else:
         res = "These are the locks in this chat:"
         if locks:
-            res += "\n - استیکر = `{}`" \
-                   "\n - موزیک = `{}`" \
-                   "\n - ویس = `{}`" \
+            res += "\n - 🎭استیکر = `{}`" \
+                   "\n - 🎧موزیک = `{}`" \
+                   "\n - 🗣ویس = `{}`" \
                    "\n - اسناد = `{}`" \
-                   "\n - ویدیو = `{}`" \
+                   "\n - 📹ویدیو = `{}`" \
                    "\n - مخاطب = `{}`" \
-                   "\n - عکس = `{}`" \
+                   "\n - 📷عکس = `{}`" \
                    "\n - گیف = `{}`" \
-                   "\n - لینک = `{}`" \
-                   "\n - ربات = `{}`" \
+                   "\n - 🌐لینک = `{}`" \
+                   "\n - 🤖ربات = `{}`" \
                    "\n - فوروارد = `{}`" \
-                   "\n - بازی = `{}`" \
+                   "\n - 🎮بازی = `{}`" \
                    "\n - لوکیشن = `{}`".format(locks.sticker, locks.audio, locks.voice, locks.document,
                                                  locks.video, locks.contact, locks.photo, locks.gif, locks.url,
                                                  locks.bots, locks.forward, locks.game, locks.location)
@@ -306,10 +306,10 @@ Locking bots will stop non-admins from adding bots to the chat.
 
 __mod_name__ = "قفل"
 
-LOCKTYPES_HANDLER = DisableAbleCommandHandler{'🔏', 'قفلیست', locktypes}
-LOCK_HANDLER = CommandHandler("🔒, قفل", lock, pass_args=True, filters=Filters.group)
+LOCKTYPES_HANDLER = DisableAbleCommandHandler("🔏", locktypes}
+LOCK_HANDLER = CommandHandler("🔒", lock, pass_args=True, filters=Filters.group)
 UNLOCK_HANDLER = CommandHandler("🔓", unlock, pass_args=True, filters=Filters.group)
-LOCKED_HANDLER = CommandHandler("قفلها", list_locks, filters=Filters.group)
+LOCKED_HANDLER = CommandHandler("🔐", list_locks, filters=Filters.group)
 
 dispatcher.add_handler(LOCK_HANDLER)
 dispatcher.add_handler(UNLOCK_HANDLER)
