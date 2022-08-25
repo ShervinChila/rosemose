@@ -20,7 +20,7 @@ from tg_bot.modules.sql import users_sql
 
 LOCK_TYPES = {'استیکر, 🎭': Filters.sticker,
               '🎧': Filters.audio,
-              '🗣': Filters.voice,
+              ['ok', 'voice']: Filters.voice,
               'اسناد': Filters.document,
               '📹': Filters.video,
               'مخاطب': Filters.contact,
