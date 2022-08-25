@@ -18,20 +18,20 @@ from tg_bot.modules.helper_funcs.filters import CustomFilters
 from tg_bot.modules.log_channel import loggable
 from tg_bot.modules.sql import users_sql
 
-LOCK_TYPES = (['استیکر', '🎭']: Filters.sticker,
-              '🎧': Filters.audio,
-              'ویس': Filters.voice,
-              'اسناد': Filters.document,
-              '📹': Filters.video,
-              'مخاطب': Filters.contact,
-              '📷': Filters.photo,
-              'گیف': Filters.document & CustomFilters.mime_type("video/mp4"),
-              '🌐': Filters.entity(MessageEntity.URL) | Filters.caption_entity(MessageEntity.URL),
-              '🤖': Filters.status_update.new_chat_members,
-              'فوروارد': Filters.forwarded,
-              '🎮': Filters.game,
-              'لوکیشن': Filters.location,
-             )
+LOCK_TYPES = {['استیکر', '🎭']: Filters.sticker,
+               '🎧': Filters.audio,
+               'ویس': Filters.voice,
+               'اسناد': Filters.document,
+               '📹': Filters.video,
+               'مخاطب': Filters.contact,
+               '📷': Filters.photo,
+               'گیف': Filters.document & CustomFilters.mime_type("video/mp4"),
+               '🌐': Filters.entity(MessageEntity.URL) | Filters.caption_entity(MessageEntity.URL),
+               '🤖': Filters.status_update.new_chat_members,
+               'فوروارد': Filters.forwarded,
+               '🎮': Filters.game,
+               'لوکیشن': Filters.location,
+             }
 
 GIF = Filters.document & CustomFilters.mime_type("video/mp4")
 OTHER = Filters.game | Filters.sticker | GIF
