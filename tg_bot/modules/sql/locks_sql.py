@@ -114,8 +114,6 @@ def update_lock(chat_id, lock_type, locked):
             curr_perm.photo = locked
         elif lock_type == ["استیکر", "🎭"]:
             curr_perm.sticker = locked
-        elif lock_type == "🎭":
-            curr_perm.sticker = locked
         elif lock_type == "گیف":
             curr_perm.gif = locked
         elif lock_type == 'لینک':
@@ -164,8 +162,6 @@ def is_locked(chat_id, lock_type):
         return False
 
     elif lock_type == ["استیکر", "🎭"]:
-        return curr_perm.sticker
-    elif lock_type == "🎭":
         return curr_perm.sticker
     elif lock_type == "عکس":
         return curr_perm.photo
