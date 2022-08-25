@@ -102,7 +102,7 @@ def update_lock(chat_id, lock_type, locked):
 
         if lock_type == "موزیک":
             curr_perm.audio = locked
-        elif lock_type == ["ok", "voice"]:
+        elif lock_type == "ویس":
             curr_perm.voice = locked
         elif lock_type == "مخاطب":
             curr_perm.contact = locked
@@ -112,7 +112,9 @@ def update_lock(chat_id, lock_type, locked):
             curr_perm.document = locked
         elif lock_type == "عکس":
             curr_perm.photo = locked
-        elif lock_type == ["استیکر", "🎭"]:
+        elif lock_type == "استیکر":
+            curr_perm.sticker = locked
+        elif lock_type == "🎭":
             curr_perm.sticker = locked
         elif lock_type == "گیف":
             curr_perm.gif = locked
@@ -161,13 +163,15 @@ def is_locked(chat_id, lock_type):
     if not curr_perm:
         return False
 
-    elif lock_type == ["استیکر", "🎭"]:
+    elif lock_type == "استیکر":
+        return curr_perm.sticker
+    elif lock_type == "🎭":
         return curr_perm.sticker
     elif lock_type == "عکس":
         return curr_perm.photo
     elif lock_type == "موزیک":
         return curr_perm.audio
-    elif lock_type == ["ok", "voice"]:
+    elif lock_type == "voice":
         return curr_perm.voice
     elif lock_type == "مخاطب":
         return curr_perm.contact
