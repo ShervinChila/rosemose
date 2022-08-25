@@ -18,7 +18,7 @@ from tg_bot.modules.helper_funcs.filters import CustomFilters
 from tg_bot.modules.log_channel import loggable
 from tg_bot.modules.sql import users_sql
 
-LOCK_TYPES = {"استیکر", "🎭": Filters.sticker,
+LOCK_TYPES = (['استیکر', '🎭']: Filters.sticker,
               '🎧': Filters.audio,
               'ویس': Filters.voice,
               'اسناد': Filters.document,
@@ -31,7 +31,7 @@ LOCK_TYPES = {"استیکر", "🎭": Filters.sticker,
               'فوروارد': Filters.forwarded,
               '🎮': Filters.game,
               'لوکیشن': Filters.location,
-              }
+             )
 
 GIF = Filters.document & CustomFilters.mime_type("video/mp4")
 OTHER = Filters.game | Filters.sticker | GIF
@@ -92,7 +92,7 @@ def unrestr_members(bot, chat_id, members, messages=True, media=True, other=True
 
 @run_async
 def locktypes(bot: Bot, update: Update):
-    update.effective_message.reply_text("\n - ".join(["Locks: "] + list(LOCK_TYPES) + list(RESTRICTION_TYPES)))
+    update.effective_message.reply_text("\n - ".join(["قفلها🔒 "] + list(LOCK_TYPES) + list(RESTRICTION_TYPES)))
 
 
 @user_admin
