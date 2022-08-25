@@ -31,7 +31,7 @@ LOCK_TYPES = {'استیکر', '🎭': Filters.sticker,
               'فوروارد': Filters.forwarded,
               '🎮': Filters.game,
               'لوکیشن': Filters.location,
-              )
+              }
 
 GIF = Filters.document & CustomFilters.mime_type("video/mp4")
 OTHER = Filters.game | Filters.sticker | GIF
