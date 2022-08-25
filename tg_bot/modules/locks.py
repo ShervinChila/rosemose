@@ -18,7 +18,7 @@ from tg_bot.modules.helper_funcs.filters import CustomFilters
 from tg_bot.modules.log_channel import loggable
 from tg_bot.modules.sql import users_sql
 
-LOCK_TYPES = {(['استیکر', '🎭']): Filters.sticker,
+LOCK_TYPES = (['استیکر', '🎭']: Filters.sticker,
               '🎧': Filters.audio,
               '🗣': Filters.voice,
               'اسناد': Filters.document,
@@ -31,7 +31,7 @@ LOCK_TYPES = {(['استیکر', '🎭']): Filters.sticker,
               'فوروارد': Filters.forwarded,
               '🎮': Filters.game,
               'لوکیشن': Filters.location,
-              }
+              )
 
 GIF = Filters.document & CustomFilters.mime_type("video/mp4")
 OTHER = Filters.game | Filters.sticker | GIF
