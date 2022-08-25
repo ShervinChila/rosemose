@@ -18,7 +18,8 @@ from tg_bot.modules.helper_funcs.filters import CustomFilters
 from tg_bot.modules.log_channel import loggable
 from tg_bot.modules.sql import users_sql
 
-LOCK_TYPES = {'استیکر', '🎭': Filters.sticker,
+LOCK_TYPES = {'استیکر': Filters.sticker,
+              '🎭': Filters.sticker,
               '🎧': Filters.audio,
               'ویس': Filters.voice,
               'اسناد': Filters.document,
