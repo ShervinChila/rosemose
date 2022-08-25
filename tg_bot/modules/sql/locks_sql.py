@@ -102,7 +102,7 @@ def update_lock(chat_id, lock_type, locked):
 
         if lock_type == "موزیک":
             curr_perm.audio = locked
-        elif lock_type == "ویس":
+        elif lock_type == ["ok", "voice"]:
             curr_perm.voice = locked
         elif lock_type == "مخاطب":
             curr_perm.contact = locked
@@ -171,7 +171,7 @@ def is_locked(chat_id, lock_type):
         return curr_perm.photo
     elif lock_type == "موزیک":
         return curr_perm.audio
-    elif lock_type == "ویس":
+    elif lock_type == ["ok", "voice"]:
         return curr_perm.voice
     elif lock_type == "مخاطب":
         return curr_perm.contact
