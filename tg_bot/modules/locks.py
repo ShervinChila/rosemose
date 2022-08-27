@@ -148,7 +148,7 @@ def lock(bot: Bot, update: Update, args: List[str]) -> str:
                 message.reply_text("چی رو میخوای قفل کنی؟🤔\nاز `.قفلیست` پیداش کن")
 
     else:
-        message.reply_text("I'm not an administrator, or haven't got delete rights.")
+        message.reply_text("یا مدیر نیستم یا اجازه حذف ندارم")
 
     return ""
 
