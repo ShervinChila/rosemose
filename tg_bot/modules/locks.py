@@ -56,6 +56,7 @@ RESTRICTION_TYPES = {'پیام': MESSAGES,
                      'رسانه': MEDIA,
                      'دیگر': OTHER,
                      'گپ': Filters.all,
+                     '✉️': MESSAGES,
                      '📺': MEDIA,
                      '⛓': OTHER,
                      '💬': Filters.all}
@@ -259,26 +260,26 @@ def build_lock_message(chat_id):
     else:
         res = "لیست قفلهای این گروه"
         if locks:
-            res += "\n - 🎭استیکر = `{}`" \
-                   "\n - 🎧موزیک = `{}`" \
-                   "\n - 🗣ویس = `{}`" \
-                   "\n - 📑اسناد = `{}`" \
-                   "\n - 📹ویدیو = `{}`" \
-                   "\n - ☎️مخاطب = `{}`" \
-                   "\n - 📷عکس = `{}`" \
-                   "\n - 🎞گیف = `{}`" \
-                   "\n - 🌐لینک = `{}`" \
-                   "\n - 🤖ربات = `{}`" \
-                   "\n - ⏩فوروارد = `{}`" \
-                   "\n - 🎮بازی = `{}`" \
-                   "\n - 📍لوکیشن = `{}`".format(locks.sticker, locks.audio, locks.voice, locks.document,
+            res += "\n ❶ 🎭استیکر = `{}`" \
+                   "\n ❷ 🎧موزیک = `{}`" \
+                   "\n ❸ 🗣ویس = `{}`" \
+                   "\n ❹ 📑اسناد = `{}`" \
+                   "\n ❺ 📹ویدیو = `{}`" \
+                   "\n ❻ ☎️مخاطب = `{}`" \
+                   "\n ❼ 📷عکس = `{}`" \
+                   "\n ❽ 🎞گیف = `{}`" \
+                   "\n ❾ 🌐لینک = `{}`" \
+                   "\n ❿ 🤖ربات = `{}`" \
+                   "\n ⓫ ⏩فوروارد = `{}`" \
+                   "\n ⓬ 🎮بازی = `{}`" \
+                   "\n ⓭ 📍لوکیشن = `{}`".format(locks.sticker, locks.audio, locks.voice, locks.document,
                                                  locks.video, locks.contact, locks.photo, locks.gif, locks.url,
                                                  locks.bots, locks.forward, locks.game, locks.location)
         if restr:
-            res += "\n - ✉️پیام = `{}`" \
-                   "\n - 📺رسانه = `{}`" \
-                   "\n - ⛓دیگر = `{}`" \
-                   "\n - 💬گپ = `{}`".format(restr.messages, restr.media, restr.other, restr.preview,
+            res += "\n ⓮ ✉️پیام = `{}`" \
+                   "\n ⓯ 📺رسانه = `{}`" \
+                   "\n ⓰ ⛓دیگر = `{}`" \
+                   "\n ⓱ 💬گپ = `{}`".format(restr.messages, restr.media, restr.other, restr.preview,
                                             all([restr.messages, restr.media, restr.other, restr.preview]))
     return res
 
