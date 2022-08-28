@@ -135,7 +135,7 @@ def lock(bot: Bot, update: Update, args: List[str]) -> str:
                     members = users_sql.get_chat_members(str(chat.id))
                     restr_members(bot, chat.id, members, messages=True, media=True, other=True)
 
-                message.reply_text("`{}` برای همه به جز ادمین ها قفل شد".format(args[0]))
+                message.reply_text("{} برای همه به جز ادمین ها قفل شد".format(args[0]))
                 return "<b>{}:</b>" \
                        "\n#LOCK" \
                        "\n<b>Admin:</b> {}" \
@@ -188,7 +188,7 @@ def unlock(bot: Bot, update: Update, args: List[str]) -> str:
                 elif args[0] == "all":
                     unrestr_members(bot, chat.id, members, True, True, True, True)
                 """
-                message.reply_text("  `{}` برای همه باز شد".format(args[0]))
+                message.reply_text(" {} برای همه باز شد".format(args[0]))
 
                 return "<b>{}:</b>" \
                        "\n#UNLOCK" \
@@ -258,29 +258,28 @@ def build_lock_message(chat_id):
     if not (locks or restr):
         res = "هیچ قفلی در حال حاضر فعال نیست"
     else:
-        res = "لیست قفلهای این گروه"
+        res = "وضعیت قفلهای این گروه"
         if locks:
             res += "\n ➊ 🎭استیکر = `{}`" \
                    "\n ➋ 🎧موزیک = `{}`" \
                    "\n ➌ 🗣ویس = `{}`" \
                    "\n ➍ 📑اسناد = `{}`" \
                    "\n ➎ 📹ویدیو = `{}`" \
-                   "\n ➏ مخاطب = `{}`" \
-                   "\n ➐ عکس = `{}`" \
-                   "\n ➑ گیف = `{}`" \
-                   "\n ➒ لینک = `{}`" \
-                   "\n ➓ ربات = `{}`" \
-                   "\n ⓫ فوروارد = `{}`" \
-                   "\n ⓬ بازی = `{}`" \
-                   "\n ⓭ لوکیشن = `{}`".format(locks.sticker, locks.audio, locks.voice, locks.document,
+                   "\n ➏ ☎️مخاطب = `{}`" \
+                   "\n ➐ 📷عکس = `{}`" \
+                   "\n ➑ 🎞گیف = `{}`" \
+                   "\n ➒ 🌐لینک = `{}`" \
+                   "\n ➓ 🤖ربات = `{}`" \
+                   "\n ⓫ ⏩فوروارد = `{}`" \
+                   "\n ⓬ 🎮بازی = `{}`" \
+                   "\n ⓭ 📍لوکیشن = `{}`".format(locks.sticker, locks.audio, locks.voice, locks.document,
                                                  locks.video, locks.contact, locks.photo, locks.gif, locks.url,
                                                  locks.bots, locks.forward, locks.game, locks.location)
         if restr:
             res += "\n ⓮ ✉️پیام = `{}`" \
-                   "\n ⓯ رسانه = `{}`" \
-                   "\n ⓰ دیگر = `{}`" \
-                   "\n ⓱ previews = `{}`" \
-                   "\n ⓲ گپ = `{}`".format(restr.messages, restr.media, restr.other, restr.preview,
+                   "\n ⓯ 📺رسانه = `{}`" \
+                   "\n ⓰ ⛓دیگر = `{}`" \
+                   "\n ⓱ 💬گپ = `{}`".format(restr.messages, restr.media, restr.other, restr.preview,
                                             all([restr.messages, restr.media, restr.other, restr.preview]))
     return res
 
@@ -314,7 +313,7 @@ __help__ = """
 با ترکیب یکی از اسامی قفلها برای باز کردن استفاده میشه
 
 ✵ `.قفلها` یا `.🔐`
-لیست کلیه ی قفل های فعال و غیر فعاله گپ
+وضعیت کلیه ی قفل های فعال و غیر فعاله گپ
 """
 
 __mod_name__ = "قفل"
