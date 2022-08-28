@@ -55,7 +55,7 @@ def promote(bot: Bot, update: Update, args: List[str]) -> str:
                           can_pin_messages=bot_member.can_pin_messages,
                           can_promote_members=bot_member.can_promote_members)
 
-    message.reply_text("به به!!!تبریییک😻🥳با موفقیت به کاربر ویژه ترفیع پیدا کرد\n *مزیت ها*")
+    message.reply_text("{}با موفقیت به کاربر ویژه ترفیع پیدا کرد\n **دسترسی ها**\n ➊مدیریت گروه\n ➋دسترسی به کلیه ی قفل ها\n ➌دسترسی به منوی بن و اخطار و سکوت\n ➍حذف پیام کاربران\n ➎سنجاق کردن پیام")
     return "<b>{}:</b>" \
            "\n#PROMOTED" \
            "\n<b>Admin:</b> {}" \
@@ -76,20 +76,20 @@ def demote(bot: Bot, update: Update, args: List[str]) -> str:
 
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text("You don't seem to be referring to a user.")
+        message.reply_text("دقت کن،فکر نکنم ایشون ممبر باشه")
         return ""
 
     user_member = chat.get_member(user_id)
     if user_member.status == 'creator':
-        message.reply_text("This person CREATED the chat, how would I demote them?")
+        message.reply_text("بابا بیا پایین\nاین مالک گپه توقع چه حرکتی از من داری?نه انصافا چه فکری پیش خودت کردی؟😂میخوای حالا جفتمونو بندازه بیرون؟کام داون🤌")
         return ""
 
     if not user_member.status == 'administrator':
-        message.reply_text("Can't demote what wasn't promoted!")
+        message.reply_text("ایشون اصلا ادمین نیست که قرار باشه من تنزیلش کنم🤌")
         return ""
 
     if user_id == bot.id:
-        message.reply_text("I can't demote myself! Get an admin to do it for me.")
+        message.reply_text("داداش ساقیتو عوض کن🤌توقع داری من خودزنی کنم؟😂")
         return ""
 
     try:
@@ -102,7 +102,7 @@ def demote(bot: Bot, update: Update, args: List[str]) -> str:
                               can_restrict_members=False,
                               can_pin_messages=False,
                               can_promote_members=False)
-        message.reply_text("Successfully demoted!")
+        message.reply_text("هعععی،{}ادمینی رو ازت گرفتن؟💔 با موفقیت از لیست ادمین ها حذف شد👍")
         return "<b>{}:</b>" \
                "\n#DEMOTED" \
                "\n<b>Admin:</b> {}" \
