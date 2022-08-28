@@ -265,22 +265,22 @@ def build_lock_message(chat_id):
                    "\n ➌ 🗣ویس = `{}`" \
                    "\n ➍ 📑اسناد = `{}`" \
                    "\n ➎ 📹ویدیو = `{}`" \
-                   "\n ➏ contact = `{}`" \
-                   "\n ➐ photo = `{}`" \
-                   "\n ➑ gif = `{}`" \
-                   "\n ➒ url = `{}`" \
-                   "\n ➓ bots = `{}`" \
-                   "\n ⓫ forward = `{}`" \
-                   "\n ⓬ game = `{}`" \
-                   "\n ⓭ location = `{}`".format(locks.sticker, locks.audio, locks.voice, locks.document,
+                   "\n ➏ مخاطب = `{}`" \
+                   "\n ➐ عکس = `{}`" \
+                   "\n ➑ گیف = `{}`" \
+                   "\n ➒ لینک = `{}`" \
+                   "\n ➓ ربات = `{}`" \
+                   "\n ⓫ فوروارد = `{}`" \
+                   "\n ⓬ بازی = `{}`" \
+                   "\n ⓭ لوکیشن = `{}`".format(locks.sticker, locks.audio, locks.voice, locks.document,
                                                  locks.video, locks.contact, locks.photo, locks.gif, locks.url,
                                                  locks.bots, locks.forward, locks.game, locks.location)
         if restr:
             res += "\n ⓮ ✉️پیام = `{}`" \
-                   "\n ⓯ media = `{}`" \
-                   "\n ⓰ other = `{}`" \
+                   "\n ⓯ رسانه = `{}`" \
+                   "\n ⓰ دیگر = `{}`" \
                    "\n ⓱ previews = `{}`" \
-                   "\n ⓲ all = `{}`".format(restr.messages, restr.media, restr.other, restr.preview,
+                   "\n ⓲ گپ = `{}`".format(restr.messages, restr.media, restr.other, restr.preview,
                                             all([restr.messages, restr.media, restr.other, restr.preview]))
     return res
 
