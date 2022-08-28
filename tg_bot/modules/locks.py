@@ -260,9 +260,9 @@ def build_lock_message(chat_id):
     else:
         res = "لیست قفلهای این گروه"
         if locks:
-            res += "\n - sticker = `{}`" \
-                   "\n - audio = `{}`" \
-                   "\n - voice = `{}`" \
+            res += "\n ➊ sticker = `{}`" \
+                   "\n ➋ audio = `{}`" \
+                   "\n ➌ voice = `{}`" \
                    "\n - document = `{}`" \
                    "\n - video = `{}`" \
                    "\n - contact = `{}`" \
@@ -276,7 +276,7 @@ def build_lock_message(chat_id):
                                                  locks.video, locks.contact, locks.photo, locks.gif, locks.url,
                                                  locks.bots, locks.forward, locks.game, locks.location)
         if restr:
-            res += "\n - messages = `{}`" \
+            res += "\n ➓ messages = `{}`" \
                    "\n - media = `{}`" \
                    "\n - other = `{}`" \
                    "\n - previews = `{}`" \
