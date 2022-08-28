@@ -114,8 +114,6 @@ def update_lock(chat_id, lock_type, locked):
             curr_perm.photo = locked
         elif lock_type == "استیکر":
             curr_perm.sticker = locked
-        elif lock_type == "🎭":
-            curr_perm.sticker = locked
         elif lock_type == "گیف":
             curr_perm.gif = locked
         elif lock_type == 'لینک':
@@ -127,6 +125,32 @@ def update_lock(chat_id, lock_type, locked):
         elif lock_type == 'بازی':
             curr_perm.game = locked
         elif lock_type == 'لوکیشن':
+            curr_perm.location = locked
+        if lock_type == "🎧":
+            curr_perm.audio = locked
+        elif lock_type == "🗣":
+            curr_perm.voice = locked
+        elif lock_type == "☎️":
+            curr_perm.contact = locked
+        elif lock_type == "📹":
+            curr_perm.video = locked
+        elif lock_type == "📑":
+            curr_perm.document = locked
+        elif lock_type == "📷":
+            curr_perm.photo = locked
+        elif lock_type == "🎭":
+            curr_perm.sticker = locked
+        elif lock_type == "🎞":
+            curr_perm.gif = locked
+        elif lock_type == '🌐':
+            curr_perm.url = locked
+        elif lock_type == '🤖':
+            curr_perm.bots = locked
+        elif lock_type == '⏩':
+            curr_perm.forward = locked
+        elif lock_type == '🎮':
+            curr_perm.game = locked
+        elif lock_type == '📍':
             curr_perm.location = locked
 
         SESSION.add(curr_perm)
@@ -152,6 +176,19 @@ def update_restriction(chat_id, restr_type, locked):
             curr_restr.media = locked
             curr_restr.other = locked
             curr_restr.preview = locked
+        elif restr_type == "✉️":
+            curr_restr.messages = locked
+        elif restr_type == "📺":
+            curr_restr.media = locked
+        elif restr_type == "⛓":
+            curr_restr.other = locked
+        elif restr_type == "نمایش":
+            curr_restr.preview = locked
+        elif restr_type == "💬":
+            curr_restr.messages = locked
+            curr_restr.media = locked
+            curr_restr.other = locked
+            curr_restr.preview = locked
         SESSION.add(curr_restr)
         SESSION.commit()
 
@@ -164,8 +201,6 @@ def is_locked(chat_id, lock_type):
         return False
 
     elif lock_type == "استیکر":
-        return curr_perm.sticker
-    elif lock_type == "🎭":
         return curr_perm.sticker
     elif lock_type == "عکس":
         return curr_perm.photo
@@ -191,6 +226,32 @@ def is_locked(chat_id, lock_type):
         return curr_perm.game
     elif lock_type == "لوکیشن":
         return curr_perm.location
+    elif lock_type == "🎭":
+        return curr_perm.sticker
+    elif lock_type == "📷":
+        return curr_perm.photo
+    elif lock_type == "🎧":
+        return curr_perm.audio
+    elif lock_type == "🗣":
+        return curr_perm.voice
+    elif lock_type == "☎️":
+        return curr_perm.contact
+    elif lock_type == "📹":
+        return curr_perm.video
+    elif lock_type == "📑":
+        return curr_perm.document
+    elif lock_type == "🎞":
+        return curr_perm.gif
+    elif lock_type == "🌐":
+        return curr_perm.url
+    elif lock_type == "🤖":
+        return curr_perm.bots
+    elif lock_type == "⏩":
+        return curr_perm.forward
+    elif lock_type == "🎮":
+        return curr_perm.game
+    elif lock_type == "📍":
+        return curr_perm.location
 
 
 def is_restr_locked(chat_id, lock_type):
@@ -209,6 +270,16 @@ def is_restr_locked(chat_id, lock_type):
     elif lock_type == "نمایش":
         return curr_restr.preview
     elif lock_type == "گپ":
+        return curr_restr.messages and curr_restr.media and curr_restr.other and curr_restr.preview
+    if lock_type == "✉️":
+        return curr_restr.messages
+    elif lock_type == "📺":
+        return curr_restr.media
+    elif lock_type == "⛓":
+        return curr_restr.other
+    elif lock_type == "نمایش":
+        return curr_restr.preview
+    elif lock_type == "💬":
         return curr_restr.messages and curr_restr.media and curr_restr.other and curr_restr.preview
 
 
