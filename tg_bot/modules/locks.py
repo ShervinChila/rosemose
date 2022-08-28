@@ -56,7 +56,6 @@ RESTRICTION_TYPES = {'پیام': MESSAGES,
                      'رسانه': MEDIA,
                      'دیگر': OTHER,
                      'گپ': Filters.all
-                     '😐': MESSAGES,
                      '📺': MEDIA,
                      '⛓': OTHER,
                      '💬': Filters.all}
