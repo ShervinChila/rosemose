@@ -55,7 +55,7 @@ PREVIEWS = Filters.entity("url")
 RESTRICTION_TYPES = {'پیام': MESSAGES,
                      'رسانه': MEDIA,
                      'دیگر': OTHER,
-                     'گپ': Filters.all
+                     'گپ': Filters.all,
                      '📺': MEDIA,
                      '⛓': OTHER,
                      '💬': Filters.all}
