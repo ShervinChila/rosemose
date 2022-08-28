@@ -35,11 +35,11 @@ def promote(bot: Bot, update: Update, args: List[str]) -> str:
 
     user_member = chat.get_member(user_id)
     if user_member.status == 'administrator' or user_member.status == 'creator':
-        message.reply_text("How am I meant to promote someone that's already an admin?")
+        message.reply_text("این کاربر خودش از قبل ادمینه😐")
         return ""
 
     if user_id == bot.id:
-        message.reply_text("I can't promote myself! Get an admin to do it for me.")
+        message.reply_text("من نمیتونم خودم رو ادمین کنم😂به یک ادمین رده بالا بگین این کار رو انجام بده")
         return ""
 
     # set same perms as bot - bot can't assign higher perms than itself!
@@ -55,7 +55,7 @@ def promote(bot: Bot, update: Update, args: List[str]) -> str:
                           can_pin_messages=bot_member.can_pin_messages,
                           can_promote_members=bot_member.can_promote_members)
 
-    message.reply_text("Successfully promoted!")
+    message.reply_text("به به!!!تبریییک😻🥳با موفقیت به کاربر ویژه ترفیع پیدا کرد\n *مزیت ها*")
     return "<b>{}:</b>" \
            "\n#PROMOTED" \
            "\n<b>Admin:</b> {}" \
