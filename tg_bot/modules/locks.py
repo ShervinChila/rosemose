@@ -188,7 +188,7 @@ def unlock(bot: Bot, update: Update, args: List[str]) -> str:
                 elif args[0] == "all":
                     unrestr_members(bot, chat.id, members, True, True, True, True)
                 """
-                message.reply_text(" قفل `{}` برای همه باز شد".format(args[0]))
+                message.reply_text("  `{}` برای همه باز شد".format(args[0]))
 
                 return "<b>{}:</b>" \
                        "\n#UNLOCK" \
@@ -260,10 +260,10 @@ def build_lock_message(chat_id):
     else:
         res = "لیست قفلهای این گروه"
         if locks:
-            res += "\n ➊ sticker = `{}`" \
-                   "\n ➋ audio = `{}`" \
-                   "\n ➌ voice = `{}`" \
-                   "\n - document = `{}`" \
+            res += "\n ➊ 🎭استیکر = `{}`" \
+                   "\n ➋ 🎧موزیک = `{}`" \
+                   "\n ➌ 🗣ویس = `{}`" \
+                   "\n - 📑اسناد = `{}`" \
                    "\n - video = `{}`" \
                    "\n - contact = `{}`" \
                    "\n - photo = `{}`" \
