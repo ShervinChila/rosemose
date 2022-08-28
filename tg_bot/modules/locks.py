@@ -121,7 +121,7 @@ def lock(bot: Bot, update: Update, args: List[str]) -> str:
         if len(args) >= 1:
             if args[0] in LOCK_TYPES:
                 sql.update_lock(chat.id, args[0], locked=True)
-                message.reply_text("{} برای همه به جز ادمین ها قفل شد".format(args[0]))
+                message.reply_text("`{}` برای همه به جز ادمین ها قفل شد".format(args[0]))
 
                 return "<b>{}:</b>" \
                        "\n#LOCK" \
@@ -135,7 +135,7 @@ def lock(bot: Bot, update: Update, args: List[str]) -> str:
                     members = users_sql.get_chat_members(str(chat.id))
                     restr_members(bot, chat.id, members, messages=True, media=True, other=True)
 
-                message.reply_text("{} برای همه به جز ادمین ها قفل شد".format(args[0]))
+                message.reply_text("`{}` برای همه به جز ادمین ها قفل شد".format(args[0]))
                 return "<b>{}:</b>" \
                        "\n#LOCK" \
                        "\n<b>Admin:</b> {}" \
@@ -162,7 +162,7 @@ def unlock(bot: Bot, update: Update, args: List[str]) -> str:
         if len(args) >= 1:
             if args[0] in LOCK_TYPES:
                 sql.update_lock(chat.id, args[0], locked=False)
-                message.reply_text("{} برای همه باز شد".format(args[0]))
+                message.reply_text(" قفل `{}` برای همه باز شد".format(args[0]))
                 return "<b>{}:</b>" \
                        "\n#UNLOCK" \
                        "\n<b>Admin:</b> {}" \
@@ -188,7 +188,7 @@ def unlock(bot: Bot, update: Update, args: List[str]) -> str:
                 elif args[0] == "all":
                     unrestr_members(bot, chat.id, members, True, True, True, True)
                 """
-                message.reply_text("Unlocked {} for everyone!".format(args[0]))
+                message.reply_text(" قفل `{}` برای همه باز شد".format(args[0]))
 
                 return "<b>{}:</b>" \
                        "\n#UNLOCK" \
@@ -261,25 +261,26 @@ def build_lock_message(chat_id):
         res = "لیست قفلهای این گروه"
         if locks:
             res += "\n - sticker = `{}`" \
-                   "\n ❷ 🎧موزیک = `{}`" \
-                   "\n ❸ 🗣ویس = `{}`" \
-                   "\n ❹ 📑اسناد = `{}`" \
-                   "\n ❺ 📹ویدیو = `{}`" \
-                   "\n ❻ ☎️مخاطب = `{}`" \
-                   "\n ❼ 📷عکس = `{}`" \
-                   "\n ❽ 🎞گیف = `{}`" \
-                   "\n ❾ 🌐لینک = `{}`" \
-                   "\n ❿ 🤖ربات = `{}`" \
-                   "\n ⓫ ⏩فوروارد = `{}`" \
-                   "\n ⓬ 🎮بازی = `{}`" \
-                   "\n ⓭ 📍لوکیشن = `{}`".format(locks.sticker, locks.audio, locks.voice, locks.document,
+                   "\n - audio = `{}`" \
+                   "\n - voice = `{}`" \
+                   "\n - document = `{}`" \
+                   "\n - video = `{}`" \
+                   "\n - contact = `{}`" \
+                   "\n - photo = `{}`" \
+                   "\n - gif = `{}`" \
+                   "\n - url = `{}`" \
+                   "\n - bots = `{}`" \
+                   "\n - forward = `{}`" \
+                   "\n - game = `{}`" \
+                   "\n - location = `{}`".format(locks.sticker, locks.audio, locks.voice, locks.document,
                                                  locks.video, locks.contact, locks.photo, locks.gif, locks.url,
                                                  locks.bots, locks.forward, locks.game, locks.location)
         if restr:
-            res += "\n ⓮ ✉️پیام = `{}`" \
-                   "\n ⓯ 📺رسانه = `{}`" \
-                   "\n ⓰ ⛓دیگر = `{}`" \
-                   "\n ⓱ 💬گپ = `{}`".format(restr.messages, restr.media, restr.other, restr.preview,
+            res += "\n - messages = `{}`" \
+                   "\n - media = `{}`" \
+                   "\n - other = `{}`" \
+                   "\n - previews = `{}`" \
+                   "\n - all = `{}`".format(restr.messages, restr.media, restr.other, restr.preview,
                                             all([restr.messages, restr.media, restr.other, restr.preview]))
     return res
 
