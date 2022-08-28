@@ -162,7 +162,7 @@ def unlock(bot: Bot, update: Update, args: List[str]) -> str:
         if len(args) >= 1:
             if args[0] in LOCK_TYPES:
                 sql.update_lock(chat.id, args[0], locked=False)
-                message.reply_text("Unlocked {} for everyone!".format(args[0]))
+                message.reply_text("{} برای همه باز شد".format(args[0]))
                 return "<b>{}:</b>" \
                        "\n#UNLOCK" \
                        "\n<b>Admin:</b> {}" \
@@ -260,7 +260,7 @@ def build_lock_message(chat_id):
     else:
         res = "لیست قفلهای این گروه"
         if locks:
-            res += "\n ❶ 🎭استیکر = `{}`" \
+            res += "\n - sticker = `{}`" \
                    "\n ❷ 🎧موزیک = `{}`" \
                    "\n ❸ 🗣ویس = `{}`" \
                    "\n ❹ 📑اسناد = `{}`" \
