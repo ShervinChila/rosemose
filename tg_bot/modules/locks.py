@@ -263,24 +263,24 @@ def build_lock_message(chat_id):
             res += "\n ➊ 🎭استیکر = `{}`" \
                    "\n ➋ 🎧موزیک = `{}`" \
                    "\n ➌ 🗣ویس = `{}`" \
-                   "\n - 📑اسناد = `{}`" \
-                   "\n - video = `{}`" \
-                   "\n - contact = `{}`" \
-                   "\n - photo = `{}`" \
-                   "\n - gif = `{}`" \
-                   "\n - url = `{}`" \
-                   "\n - bots = `{}`" \
-                   "\n - forward = `{}`" \
-                   "\n - game = `{}`" \
-                   "\n - location = `{}`".format(locks.sticker, locks.audio, locks.voice, locks.document,
+                   "\n ➍ 📑اسناد = `{}`" \
+                   "\n ➎ 📹ویدیو = `{}`" \
+                   "\n ➏ contact = `{}`" \
+                   "\n ➐ photo = `{}`" \
+                   "\n ➑ gif = `{}`" \
+                   "\n ➒ url = `{}`" \
+                   "\n ➓ bots = `{}`" \
+                   "\n ⓫ forward = `{}`" \
+                   "\n ⓬ game = `{}`" \
+                   "\n ⓭ location = `{}`".format(locks.sticker, locks.audio, locks.voice, locks.document,
                                                  locks.video, locks.contact, locks.photo, locks.gif, locks.url,
                                                  locks.bots, locks.forward, locks.game, locks.location)
         if restr:
-            res += "\n ➓ messages = `{}`" \
-                   "\n - media = `{}`" \
-                   "\n - other = `{}`" \
-                   "\n - previews = `{}`" \
-                   "\n - all = `{}`".format(restr.messages, restr.media, restr.other, restr.preview,
+            res += "\n ⓮ ✉️پیام = `{}`" \
+                   "\n ⓯ media = `{}`" \
+                   "\n ⓰ other = `{}`" \
+                   "\n ⓱ previews = `{}`" \
+                   "\n ⓲ all = `{}`".format(restr.messages, restr.media, restr.other, restr.preview,
                                             all([restr.messages, restr.media, restr.other, restr.preview]))
     return res
 
