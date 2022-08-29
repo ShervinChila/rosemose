@@ -204,8 +204,8 @@ def link_public(bot: Bot, update: Update):
             message.reply_text("لینک *{}*:\n`{}`".format(chat.title, invitelink), parse_mode=ParseMode.MARKDOWN)
         else:
             message.reply_text("ادمین های *{}* لینکی رو تنظیم نکردن"
-                               " \nلینک رو میتونی با دستور `.ستلینک` بسازی و دریافت کنی "
-                               "با استفاده از دستور `.لینک` بعد از دستور `.ستلینک` میتونی لینک رو قرار بدی".format(chat.title), parse_mode=ParseMode.MARKDOWN)
+                               " \nلینک رو میتونی با دستور `.ستلینک` ست کنی "
+                               "با استفاده از دستور `.لینک` هم دریافتش کنی".format(chat.title), parse_mode=ParseMode.MARKDOWN)
     else:
         message.reply_text("من فقط میتونم لینک سوپر گروهها یا کانال ها رو ذخیره کنم")
 
@@ -222,7 +222,7 @@ def set_link(bot: Bot, update: Update):
         links_text = args[1]
 
         sql.set_link(chat_id, links_text)
-        msg.reply_text("لینک برای {} ست شد\nدریافت لینک بادستور `.لینک`".format((chat.title)))
+        msg.reply_text("لینک برای {} ست شد،دریافت لینک بادستور `.لینک` در دسترسه".format((chat.title)))
 
 
 @run_async
