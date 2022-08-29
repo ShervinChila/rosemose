@@ -30,16 +30,16 @@ def promote(bot: Bot, update: Update, args: List[str]) -> str:
 
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text("You don't seem to be referring to a user.")
+        message.reply_text("دقت کن،فکر نکنم ایشون ممبر باشه")
         return ""
 
     user_member = chat.get_member(user_id)
     if user_member.status == 'administrator' or user_member.status == 'creator':
-        message.reply_text("این کاربر خودش از قبل ادمینه😐")
+        message.reply_text("خودش از قبل ادمینه😐")
         return ""
 
     if user_id == bot.id:
-        message.reply_text("من نمیتونم خودم رو ادمین کنم😂به یک ادمین رده بالا بگین این کار رو انجام بده")
+        message.reply_text("من نمیتونم خودم رو ادمین کنم😂به یک ادمین رده بالا بگو این کار رو انجام بده")
         return ""
 
     # set same perms as bot - bot can't assign higher perms than itself!
@@ -53,9 +53,9 @@ def promote(bot: Bot, update: Update, args: List[str]) -> str:
                           # can_invite_users=bot_member.can_invite_users,
                           can_restrict_members=bot_member.can_restrict_members,
                           can_pin_messages=bot_member.can_pin_messages,
-                          can_promote_members=bot_member.can_promote_members)
+                          #can_promote_members=bot_member.can_promote_members)
 
-    message.reply_text("{}با موفقیت به کاربر ویژه ترفیع پیدا کرد\n **دسترسی ها**\n ➊مدیریت گروه\n ➋دسترسی به کلیه ی قفل ها\n ➌دسترسی به منوی بن و اخطار و سکوت\n ➍حذف پیام کاربران\n ➎سنجاق کردن پیام")
+    message.reply_text("با موفقیت به کاربر ویژه ترفیع پیدا کرد\n **دسترسی ها**\n ➊مدیریت گروه\n ➋دسترسی به کلیه ی قفل ها\n ➌دسترسی به منوی بن و اخطار و سکوت\n ➍حذف پیام کاربران\n ➎سنجاق کردن پیام")
     return "<b>{}:</b>" \
            "\n#PROMOTED" \
            "\n<b>Admin:</b> {}" \
@@ -102,7 +102,7 @@ def demote(bot: Bot, update: Update, args: List[str]) -> str:
                               can_restrict_members=False,
                               can_pin_messages=False,
                               can_promote_members=False)
-        message.reply_text("هعععی،{}ادمینی رو ازت گرفتن؟💔 با موفقیت از لیست ادمین ها حذف شد👍")
+        message.reply_text("هعععی،ادمینی رو ازت گرفتن؟💔 با موفقیت از لیست ادمین ها حذف شد👍")
         return "<b>{}:</b>" \
                "\n#DEMOTED" \
                "\n<b>Admin:</b> {}" \
@@ -111,8 +111,8 @@ def demote(bot: Bot, update: Update, args: List[str]) -> str:
                                           mention_html(user_member.user.id, user_member.user.first_name))
 
     except BadRequest:
-        message.reply_text("Could not demote. I might not be admin, or the admin status was appointed by another "
-                           "user, so I can't act upon them!")
+        message.reply_text("برکناری انجام نشد،ممکنه من ادمین نباشم یا این کاربر توسط من ادمین نشده باشه"
+                           "اگر کس دیگه ای ادمینش کرده باشه من نمیتونم برکنارش کنم")
         return ""
 
 
@@ -131,7 +131,7 @@ def pin(bot: Bot, update: Update, args: List[str]) -> str:
 
     is_silent = True
     if len(args) >= 1:
-        is_silent = not (args[0].lower() == 'notify' or args[0].lower() == 'loud' or args[0].lower() == 'violent')
+        is_silent = not (args[0].lower() == 'نوتیف' or args[0].lower() == 'اعلان' or args[0].lower() == 'violent')
 
     if prev_message and is_group:
         try:
@@ -183,14 +183,14 @@ def invite(bot: Bot, update: Update):
         bot_member = chat.get_member(bot.id)
         if bot_member.can_invite_users:
             invitelink = bot.exportChatInviteLink(chat.id)
-            linktext = "Successfully generated new link for *{}:*".format(chat.title)
+            linktext = "لینک جدید با موفقیت برای *{}:* انجام شد".format(chat.title)
             link = "`{}`".format(invitelink)
             message.reply_text(linktext, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
             message.reply_text(link, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
         else:
-            message.reply_text("I don't have access to the invite link, try changing my permissions!")
+            message.reply_text("من به لینک دعوت دسترسی ندارم،مجوزش رو بهم بده")
     else:
-        message.reply_text("I can only give you invite links for supergroups and channels, sorry!")
+        message.reply_text("من فقط میتونم لینک دعوت سوپر گروهها و کانال ها رو بهت بدم")
 
 @run_async
 def link_public(bot: Bot, update: Update):
@@ -201,13 +201,13 @@ def link_public(bot: Bot, update: Update):
     
     if chat.type == chat.SUPERGROUP or chat.type == chat.CHANNEL:
         if invitelink:
-            message.reply_text("Link of *{}*:\n`{}`".format(chat.title, invitelink), parse_mode=ParseMode.MARKDOWN)
+            message.reply_text("لینک *{}*:\n`{}`".format(chat.title, invitelink), parse_mode=ParseMode.MARKDOWN)
         else:
-            message.reply_text("The admins of *{}* haven't set link."
-                               " \nLink can be set by following: `/setlink` and get link of chat "
-                               "using /invitelink, paste the link after `/setlink` append.".format(chat.title), parse_mode=ParseMode.MARKDOWN)
+            message.reply_text("ادمین های *{}* لینکی رو تنظیم نکردن"
+                               " \nلینک رو میتونی با دستور `.ستلینک` بسازی و دریافت کنی "
+                               "با استفاده از دستور `.لینک` بعد از دستور `.ستلینک` میتونی لینک رو قرار بدی".format(chat.title), parse_mode=ParseMode.MARKDOWN)
     else:
-        message.reply_text("I can only can save links for supergroups and channels, sorry!")
+        message.reply_text("من فقط میتونم لینک سوپر گروهها یا کانال ها رو ذخیره کنم")
 
 @run_async
 @user_admin
@@ -222,7 +222,7 @@ def set_link(bot: Bot, update: Update):
         links_text = args[1]
 
         sql.set_link(chat_id, links_text)
-        msg.reply_text("The link has been set for {}!\nRetrieve link by #link".format((chat.title)))
+        msg.reply_text("لینک برای {} ست شد\nدریافت لینک بادستور `.لینک`".format((chat.title)))
 
 
 @run_async
@@ -230,13 +230,13 @@ def set_link(bot: Bot, update: Update):
 def clear_link(bot: Bot, update: Update):
     chat_id = update.effective_chat.id
     sql.set_link(chat_id, "")
-    update.effective_message.reply_text("Successfully cleared link!")
+    update.effective_message.reply_text("لینک با موفقیت حذف شد")
 
 
 @run_async
 def adminlist(bot: Bot, update: Update):
     administrators = update.effective_chat.get_administrators()
-    text = "Admins in *{}*:".format(update.effective_chat.title or "this chat")
+    text = "ادمین های *{}*:".format(update.effective_chat.title or "این گپ")
     for admin in administrators:
         user = admin.user
         name = "[{}](tg://user?id={})".format(user.first_name + (user.last_name or ""), user.id)
@@ -247,51 +247,64 @@ def adminlist(bot: Bot, update: Update):
     update.effective_message.reply_text(text, parse_mode=ParseMode.MARKDOWN)
 
 def __stats__():
-    return "{} chats have links set.".format(sql.num_chats())
+    return "{} این گپ برای لینک ست شده".format(sql.num_chats())
 
 def __chat_settings__(chat_id, user_id):
-    return "You are *admin*: `{}`".format(
+    return "شما *ادمین* هستی: `{}`".format(
         dispatcher.bot.get_chat_member(chat_id, user_id).status in ("administrator", "creator"))
 
 
 __help__ = """
-Lazy to promote or demote someone for admins? Want to see basic information about chat? \
-All stuff about chatroom such as admin lists, pinning or grabbing an invite link can be \
-done easily using the bot.
+**همه ی موارد مربوط به مدیریت گپ مثل ترفیع کاربر،برکناری کاربر،سنجاق پیام و غیره رو میتونی از طریق من راحت انجام بدی**
 
- - /adminlist: list of admins and members in the chat
- - /staff: same as /adminlist
- - /link: get the group link for this chat.
- - #link: same as /link
+ ✵ `.مدیرها` یا `.👥`
+ لیست مدیرهای گپ
 
-*Admin only:*
- - /pin: silently pins the message replied to - add 'loud' or 'notify' to give notifies to users.
- - /unpin: unpins the currently pinned message.
- - /invitelink: generates new invite link.
- - /setlink <your group link here>: set the group link for this chat.
- - /clearlink: clear the group link for this chat.
- - /promote: promotes the user replied to
- - /demote: demotes the user replied to
+ ✵ `.لینک` یا `.📮`
+ دریافت لینگ گپ
  
- An example of set a link:
-`/setlink https://t.me/joinchat/HwiIk1RADK5gRMr9FBdOrwtae`
+ ✵ `.پین` یا `.📌`
+ پین کردن پیام،برای نوتیف هم در کنار پین از `.اعلان` یا `.نوتیف` استفاده کنید
 
-An example of promoting someone to admins:
-`/promote @username`; this promotes a user to admins.
+ ✵ `.لغوپین` یا `.🖇`
+ حذف کردن پین
+
+ ✵ `.نیولینک` یا `.🆕`
+ ساخت لینک دعوت جدید
+
+ ✵ `.ستلینک` یا `.🔗`
+ تنظیم کردن لینک شخصی
+
+ ✵ `.لغولینک` یا `.🗑`
+ حذف کردن لینک
+
+ ✵ `.کاربرویژه` یا `.😍` و `.🤝`
+ ترفیع کاربر
+
+ ✵ `.برکناری` یا `.😑`
+ برکناری ادمین
+ 
+ **آموزش ستلینک**
+`.ستلینک https://t.me/joinchat/HjksyIKjn6i`
+
+**آموزش ترفیع و برکناری**
+ریپلای کردن پیام کاربر و ارسال دستور مورد نظر
+یا ارسال دستور+یوزرنیم👇
+`.🤝 @username`
 """
 
 __mod_name__ = "ادمین"
 
-PIN_HANDLER = CommandHandler("pin", pin, pass_args=True, filters=Filters.group)
-UNPIN_HANDLER = CommandHandler("unpin", unpin, filters=Filters.group)
-LINK_HANDLER = DisableAbleCommandHandler("link", link_public)
-SET_LINK_HANDLER = CommandHandler("setlink", set_link, filters=Filters.group)
-RESET_LINK_HANDLER = CommandHandler("clearlink", clear_link, filters=Filters.group)
+PIN_HANDLER = CommandHandler(["پین", "📌"], pin, pass_args=True, filters=Filters.group)
+UNPIN_HANDLER = CommandHandler(["لغوپین", "🖇"], unpin, filters=Filters.group)
+LINK_HANDLER = DisableAbleCommandHandler(["لینک", "📮"], link_public)
+SET_LINK_HANDLER = CommandHandler(["ستلینک", "🔗"], set_link, filters=Filters.group)
+RESET_LINK_HANDLER = CommandHandler(["لغولینک", "🗑"], clear_link, filters=Filters.group)
 HASH_LINK_HANDLER = RegexHandler("#link", link_public)
-INVITE_HANDLER = CommandHandler("invitelink", invite, filters=Filters.group)
-PROMOTE_HANDLER = CommandHandler("ترفیع", promote, pass_args=True, filters=Filters.group)
-DEMOTE_HANDLER = CommandHandler("تنزیل", demote, pass_args=True, filters=Filters.group)
-ADMINLIST_HANDLER = DisableAbleCommandHandler(["adminlist", "staff"], adminlist, filters=Filters.group)
+INVITE_HANDLER = CommandHandler(["نیولینک", "🆕"], invite, filters=Filters.group)
+PROMOTE_HANDLER = CommandHandler(["کاربرویژه", "🤝", "😍"], promote, pass_args=True, filters=Filters.group)
+DEMOTE_HANDLER = CommandHandler(["برکناری", "😑"], demote, pass_args=True, filters=Filters.group)
+ADMINLIST_HANDLER = DisableAbleCommandHandler(["مدیرها", "👥"], adminlist, filters=Filters.group)
 
 dispatcher.add_handler(PIN_HANDLER)
 dispatcher.add_handler(UNPIN_HANDLER)
