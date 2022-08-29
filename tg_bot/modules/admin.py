@@ -81,7 +81,7 @@ def demote(bot: Bot, update: Update, args: List[str]) -> str:
 
     user_member = chat.get_member(user_id)
     if user_member.status == 'creator':
-        message.reply_text("بابا بیا پایین\nاین مالک گپه توقع چه حرکتی از من داری?نه انصافا چه فکری پیش خودت کردی؟😂میخوای حالا جفتمونو بندازه بیرون؟کام داون🤌")
+        message.reply_text("بابا بیا پایین🤌\nاین مالک گپه توقع چه حرکتی از من داری?😂")
         return ""
 
     if not user_member.status == 'administrator':
