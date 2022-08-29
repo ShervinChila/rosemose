@@ -270,8 +270,8 @@ __help__ = """
  ✵ `.لغوپین` یا `.🖇`
  حذف کردن پین
 
- ✵ `.نیولینک` یا `.🆕`
- ساخت لینک دعوت جدید
+ ✵ `.آیدیگپ` یا `.🗯`
+ آیدی گپ
 
  ✵ `.ستلینک` یا `.🔗`
  تنظیم کردن لینک شخصی
@@ -303,7 +303,7 @@ LINK_HANDLER = DisableAbleCommandHandler(["لینک", "📮"], link_public)
 SET_LINK_HANDLER = CommandHandler(["ستلینک", "🔗"], set_link, filters=Filters.group)
 RESET_LINK_HANDLER = CommandHandler(["لغولینک", "🗑"], clear_link, filters=Filters.group)
 HASH_LINK_HANDLER = RegexHandler("#link", link_public)
-INVITE_HANDLER = CommandHandler(["نیولینک", "🆕"], invite, filters=Filters.group)
+INVITE_HANDLER = CommandHandler(["آیدیگپ", "🗯"], invite, filters=Filters.group)
 PROMOTE_HANDLER = CommandHandler(["کاربرویژه", "🤝", "😍"], promote, pass_args=True, filters=Filters.group)
 DEMOTE_HANDLER = CommandHandler(["برکناری", "😑"], demote, pass_args=True, filters=Filters.group)
 ADMINLIST_HANDLER = DisableAbleCommandHandler(["مدیرها", "👥"], adminlist, filters=Filters.group)
