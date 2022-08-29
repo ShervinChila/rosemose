@@ -52,8 +52,8 @@ def promote(bot: Bot, update: Update, args: List[str]) -> str:
                           can_delete_messages=bot_member.can_delete_messages,
                           # can_invite_users=bot_member.can_invite_users,
                           can_restrict_members=bot_member.can_restrict_members,
-                          can_pin_messages=bot_member.can_pin_messages,
-                          can_promote_members=bot_member.can_promote_members)
+                          can_pin_messages=bot_member.can_pin_messages)
+                          #can_promote_members=bot_member.can_promote_members
 
     message.reply_text("با موفقیت به کاربر ویژه ترفیع پیدا کرد\n **دسترسی ها**\n ➊مدیریت گروه\n ➋دسترسی به کلیه ی قفل ها\n ➌دسترسی به منوی بن و اخطار و سکوت\n ➍حذف پیام کاربران\n ➎سنجاق کردن پیام")
     return "<b>{}:</b>" \
