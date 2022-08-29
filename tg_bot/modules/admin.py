@@ -85,7 +85,7 @@ def demote(bot: Bot, update: Update, args: List[str]) -> str:
         return ""
 
     if not user_member.status == 'administrator':
-        message.reply_text("ایشون اصلا ادمین نیست که قرار باشه من تنزیلش کنم🤌")
+        message.reply_text("ایشون اصلا ادمین نیست که قرار باشه من برکنارش کنم🤌")
         return ""
 
     if user_id == bot.id:
