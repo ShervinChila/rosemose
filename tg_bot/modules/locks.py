@@ -107,7 +107,7 @@ def unrestr_members(bot, chat_id, members, messages=True, media=True, other=True
 
 @run_async
 def locktypes(bot: Bot, update: Update):
-    update.effective_message.reply_text("\n ⬣ ".join(["لیست قفلها🔒 "] + list(LOCK_TYPES) + list(RESTRICTION_TYPES)))
+    update.effective_message.reply_text("\n ★ ".join(["لیست قفلها🔒 "] + list(LOCK_TYPES) + list(RESTRICTION_TYPES)))
 
 
 @user_admin
