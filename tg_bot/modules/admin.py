@@ -183,7 +183,7 @@ def invite(bot: Bot, update: Update):
         bot_member = chat.get_member(bot.id)
         if bot_member.can_invite_users:
             invitelink = bot.exportChatInviteLink(chat.id)
-            linktext = "لینک جدید با موفقیت برای *{}:* انجام شد".format(chat.title)
+            linktext = "لینک جدید با موفقیت برای *{}:* ساخته شد".format(chat.title)
             link = "`{}`".format(invitelink)
             message.reply_text(linktext, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
             message.reply_text(link, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
