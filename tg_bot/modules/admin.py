@@ -102,7 +102,7 @@ def demote(bot: Bot, update: Update, args: List[str]) -> str:
                               can_restrict_members=False,
                               can_pin_messages=False,
                               can_promote_members=False)
-        message.reply_text("هعععی،ادمینی رو ازت گرفتن؟💔 با موفقیت از لیست ادمین ها حذف شد👍")
+        message.reply_text("هعععی،چرااا؟!💔 ولی خب با موفقیت از لیست ادمین ها حذف شد👍")
         return "<b>{}:</b>" \
                "\n#DEMOTED" \
                "\n<b>Admin:</b> {}" \
